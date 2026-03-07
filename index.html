@@ -105,12 +105,24 @@ footer {
     padding: 40px;
     opacity: 0.5;
 }
-	#ratebox{
-    font-size:28px;
-    padding:20px;
-    border:1px solid #ccc;
-    display:inline-block;
-    border-radius:10px;
+.container{
+    background:white;
+    width:320px;
+    margin:auto;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.1);
+}
+
+.rate{
+    font-size:32px;
+    font-weight:bold;
+    margin:20px 0;
+}
+
+.updated{
+    color:#777;
+    font-size:14px;
 }
 </style>
 </head>
@@ -132,11 +144,18 @@ footer {
 		Obs valg.
 	</br>&#128172; Legg ut bilder i messengerchatten som et voksent menneske. &#128123 Snapchat er for barn. Komiteen vil som vanlig kåre årets blåturer, stemning og gledespredning vektlegges
 	</br><h2>100 NOK to Hungarian Forint</h2>
+<div class="container">
 
-<h2>Norges Bank Exchange Rate</h2>
+<h2>100 NOK → HUF</h2>
 
-<div id="ratebox">
-Loading rate...
+<div class="rate" id="rate">
+Loading...
+</div>
+
+<div class="updated" id="updated">
+Waiting for data
+</div>
+
 </div>
 
 <script>
@@ -156,22 +175,30 @@ const hufPerNok = 1 / rate;
 
 const value = (100 * hufPerNok).toFixed(2);
 
-document.getElementById("ratebox").innerHTML =
-"100 NOK = " + value + " HUF";
+document.getElementById("rate").innerHTML =
+value + " HUF";
+
+const now = new Date();
+
+document.getElementById("updated").innerHTML =
+"Updated: " + now.toLocaleTimeString();
 
 }
 
 catch(e){
-document.getElementById("ratebox").innerHTML =
-"Unable to load exchange rate";
+
+document.getElementById("rate").innerHTML =
+"Error loading rate";
+
+}
+
 }
 
 updateRate();
 
-setInterval(updateRate, 60000);
+setInterval(updateRate,60000);
 
-</script>	
-		
+</script>
 	</br>
 		<a href="https://www.caratboutiquehotel.hu/en/"><img src="https://d1vp8nomjxwyf1.cloudfront.net/wp-content/uploads/sites/490/2018/12/18081200/CaratBoutiqueLogo.png" alt="Blåtur mood" class="capped-img">
 		</br></a>Carat Boutique Hotell, </a>
@@ -260,6 +287,7 @@ setInterval(updateRate, 60000);
 </body>
 
 </html>
+
 
 
 
