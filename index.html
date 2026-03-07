@@ -295,9 +295,9 @@ Bookingreferanse Norwegian: <strong>YNCEQK</strong><br>
 ✈️ · 2026 · Blåturkomitéen · 🍹
 </footer>
 
-<script>
-
 /* CURRENCY */
+
+<script>
 
 async function updateRate(){
 
@@ -329,12 +329,18 @@ new Date().toLocaleTimeString();
 }
 
 catch(err){
+
 document.getElementById("rate").innerHTML="Kunne ikke hente kurs";
+
 }
+
 }
 
 updateRate();
 setInterval(updateRate,60000);
+
+</script>
   
 </body>
 </html>
+
