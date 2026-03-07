@@ -317,12 +317,12 @@ const rate=observation[obsKey][0];
 
 const hufPerNok=1/rate;
 
-const value=(100*hufPerNok).toFixed(2);
+const value=(10000*hufPerNok).toFixed(2);
 
 document.getElementById("rate").innerHTML=value+" HUF";
 
 document.getElementById("updated").innerHTML=
-"1 NOK = "+hufPerNok.toFixed(2)+" HUF • Oppdatert "+
+"Oppdatert "+
 new Date().toLocaleTimeString();
 
 }
@@ -342,6 +342,7 @@ setInterval(updateRate,60000);
   
 </body>
 </html>
+
 
 
 
