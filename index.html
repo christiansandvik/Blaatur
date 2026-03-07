@@ -105,6 +105,13 @@ footer {
     padding: 40px;
     opacity: 0.5;
 }
+	#ratebox{
+    font-size:28px;
+    padding:20px;
+    border:1px solid #ccc;
+    display:inline-block;
+    border-radius:10px;
+}
 </style>
 </head>
 
@@ -122,15 +129,50 @@ footer {
 <div class="hero">
 	<div class="glass">&#x1F4B5	Valutta: Forint </br> 
 		ekte gærninger. </br> Pass på svindel. </br> 
-		Obs valg. Legg ut bilder i messengerchatten som et voksent menneske. Snapchat er for barn. Komiteen vil som vanlig kåre årets blåturer, stemning og gledespredning vektlegges
+		Obs valg.
+	</br>&#128172; Legg ut bilder i messengerchatten som et voksent menneske. Snapchat er for barn. Komiteen vil som vanlig kåre årets blåturer, stemning og gledespredning vektlegges
 	</br><h2>100 NOK to Hungarian Forint</h2>
 
-<iframe 
-    src="https://www.xe.com/currencyconverter/convert/?Amount=100&From=NOK&To=HUF"
-    width="400"
-    height="300"
-    style="border:none;">
-</iframe></br>
+<h2>Norges Bank Exchange Rate</h2>
+
+<div id="ratebox">
+Loading rate...
+</div>
+
+<script>
+
+async function updateRate(){
+
+const url = "https://data.norges-bank.no/api/data/EXR/B.HUF.NOK.SP?lastNObservations=1&format=sdmx-json";
+
+try{
+
+const response = await fetch(url);
+const data = await response.json();
+
+const rate = data.data.dataSets[0].series["0:0:0:0"].observations["0"][0];
+
+const hufPerNok = 1 / rate;
+
+const value = (100 * hufPerNok).toFixed(2);
+
+document.getElementById("ratebox").innerHTML =
+"100 NOK = " + value + " HUF";
+
+}
+
+catch(e){
+document.getElementById("ratebox").innerHTML =
+"Unable to load exchange rate";
+}
+
+updateRate();
+
+setInterval(updateRate, 60000);
+
+</script>	
+		
+	</br>
 		<a href="https://www.caratboutiquehotel.hu/en/"><img src="https://d1vp8nomjxwyf1.cloudfront.net/wp-content/uploads/sites/490/2018/12/18081200/CaratBoutiqueLogo.png" alt="Blåtur mood" class="capped-img">
 		</br></a>Carat Boutique Hotell, </a>
 	</br> Király u. 6t </br></br>Det er inkludert frokost,
@@ -218,6 +260,7 @@ footer {
 </body>
 
 </html>
+
 
 
 
