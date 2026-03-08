@@ -33,19 +33,17 @@ justify-content:center;
 text-align:center;
 min-height:100vh;
 }
-
     
 .hero{
 position:relative;
 height:100vh;
 display:flex;
 flex-direction:column;
-align-items:center;
+justify-content:center; /* vertikalt midt */
+align-items:center;    /* horisontalt midt */
 text-align:center;
-justify-content:center; /* sentrerer alt vertikalt */
-padding-top:0;         /* fjern ekstra padding */
 }
-
+    
 h1{
 font-size:4rem;
 font-weight:700;
@@ -204,17 +202,14 @@ height:100%;
 z-index:-1;
 }
 
-
-
 .flight-route{
 display:flex;
 justify-content:center;
 align-items:center;
-margin:10px auto;
-opacity:0.85;
 width:100%;
 max-width:600px;
-overflow:hidden;
+margin:0 auto;      /* midtstilt horisontalt */
+opacity:0.85;
 }
 
 #flightPath{
@@ -222,8 +217,8 @@ filter:drop-shadow(0 0 6px rgba(79,195,247,0.8));
 }
     
 .route-svg{
-width:500px;      /* større bredde */
-max-width:90vw;   /* skalerer på små skjermer */
+width:500px;        /* større flyrute */
+max-width:90vw;
 height:auto;
 display:block;
 margin:auto;
@@ -252,36 +247,30 @@ opacity:0.5;
 <body>
 <canvas id="stars"></canvas>
 
-<header>
+<!-- Flyruta over hero -->
 <div class="flight-route">
-<svg viewBox="0 0 600 200" class="route-svg">
-
-<path id="flightPath"
-d="M80 150 Q300 20 520 80"
-fill="none"
-stroke="rgba(255,255,255,0.6)"
-stroke-width="2"
-stroke-dasharray="6 6"
-/>
-
-<circle cx="80" cy="150" r="4" fill="#4fc3f7"/>
-<text x="60" y="170" class="airport">OSL</text>
-
-<circle cx="520" cy="80" r="4" fill="#4fc3f7"/>
-<text x="510" y="65" class="airport">BUD</text>
-
-<text id="plane" font-size="20">✈</text>
-
-</svg>
+  <svg viewBox="0 0 600 200" class="route-svg">
+    <path id="flightPath"
+          d="M80 150 Q300 20 520 80"
+          fill="none"
+          stroke="rgba(255,255,255,0.6)"
+          stroke-width="2"
+          stroke-dasharray="6 6"/>
+    <circle cx="80" cy="150" r="4" fill="#4fc3f7"/>
+    <text x="60" y="170" class="airport">OSL</text>
+    <circle cx="520" cy="80" r="4" fill="#4fc3f7"/>
+    <text x="510" y="65" class="airport">BUD</text>
+    <text id="plane" font-size="20">✈</text>
+  </svg>
 </div>
+
+<!-- Hero sentrert uavhengig av flyruta -->
 <div class="hero">
-
-<h1>BLÅTUR 2026</h1>
-<div class="subtitle">BUDAPEST</div>
-</header>
-
-<div class="scroll">Scroll ↓</div>
+  <h1>BLÅTUR 2026</h1>
+  <div class="subtitle">BUDAPEST</div>
+  <div class="scroll">Scroll ↓</div>
 </div>
+
   
 <div class="section image-section">
 <img src="https://budapesttuktuk.com/images/13/budapest-by-night_en_4bdb0220.jpg">
@@ -559,6 +548,7 @@ canvas.height = window.innerHeight;
     
 </body>
 </html>
+
 
 
 
