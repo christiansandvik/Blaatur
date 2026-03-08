@@ -440,33 +440,6 @@ drawStars();
 </script>
 
 <script>
-
-const observer = new IntersectionObserver(entries => {
-
-entries.forEach(entry => {
-
-if(entry.isIntersecting){
-entry.target.classList.add("active");
-}else{
-entry.target.classList.remove("active");
-}
-
-});
-
-},{
-root:null,
-
-/* aktiveringsfelt rundt midten av skjermen */
-
-rootMargin:"-40% 0px -40% 0px",
-
-threshold:0
-});
-
-document.querySelectorAll(".image-section img").forEach(img=>{
-observer.observe(img);
-});
-
 const glassSections = document.querySelectorAll(".glass");
 
 const observer = new IntersectionObserver(entries => {
@@ -494,6 +467,7 @@ g.classList.remove("focus");
 });
 
 },{
+root:null,
 rootMargin:"-40% 0px -40% 0px",
 threshold:0
 });
@@ -501,11 +475,13 @@ threshold:0
 document.querySelectorAll(".image-section img").forEach(img=>{
 observer.observe(img);
 });
-    
+
+
 </script>
     
 </body>
 </html>
+
 
 
 
