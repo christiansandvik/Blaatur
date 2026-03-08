@@ -451,7 +451,13 @@ entry.target.classList.remove("active");
 });
 
 },{
-threshold:0.3
+root:null,
+
+/* aktiveringsfelt rundt midten av skjermen */
+
+rootMargin:"-40% 0px -40% 0px",
+
+threshold:0
 });
 
 document.querySelectorAll(".image-section img").forEach(img=>{
@@ -462,5 +468,6 @@ observer.observe(img);
     
 </body>
 </html>
+
 
 
