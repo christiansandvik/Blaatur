@@ -135,14 +135,17 @@ border-radius:30px;
 box-shadow:0 30px 60px rgba(0,0,0,0.7);
 transition:transform 0.8s ease, box-shadow 0.8s ease;
 }
-.image-section img.active{
-transform:scale(1.15);
-box-shadow:0 60px 120px rgba(0,0,0,0.9);
-}
+
 .image-section img:hover{
 transform:scale(1.08);
 }
 
+.image-section img.active{
+transform:scale(1.18);
+box-shadow:0 80px 140px rgba(0,0,0,0.95);
+}
+
+    
 .glass.focus{
 box-shadow:
 0 30px 80px rgba(0,0,0,0.6),
@@ -189,6 +192,55 @@ width:100%;
 height:100%;
 z-index:-1;
 }
+
+.flight-route{
+display:flex;
+justify-content:center;
+margin:40px 0 80px 0;
+opacity:0.9;
+}
+
+.route-svg{
+width:420px;
+height:140px;
+}
+
+.airport{
+fill:white;
+font-size:12px;
+font-family:sans-serif;
+opacity:0.8;
+}
+
+#flightPath{
+stroke-dasharray:1000;
+stroke-dashoffset:1000;
+animation:drawRoute 3s ease forwards;
+}
+
+@keyframes drawRoute{
+to{
+stroke-dashoffset:0;
+}
+}
+
+#plane{
+offset-path:path("M80 150 Q300 20 520 80");
+offset-rotate:auto;
+animation:fly 3s ease forwards;
+}
+
+@keyframes fly{
+from{
+offset-distance:0%;
+opacity:0;
+}
+to{
+offset-distance:100%;
+opacity:1;
+}
+}
+    
 footer{
 text-align:center;
 padding:40px;
@@ -199,14 +251,41 @@ opacity:0.5;
 100%{background-position:200%}
 }
 </style>
+
+    
 </head>
 
 <body>
 <canvas id="stars"></canvas>
+<header>
+<div class="flight-route">
+
+<svg viewBox="0 0 600 200" class="route-svg">
+
+<path id="flightPath"
+d="M80 150 Q300 20 520 80"
+fill="none"
+stroke="rgba(255,255,255,0.6)"
+stroke-width="2"
+stroke-dasharray="6 6"
+/>
+
+<circle cx="80" cy="150" r="4" fill="#4fc3f7"/>
+<text x="60" y="170" class="airport">OSL</text>
+
+<circle cx="520" cy="80" r="4" fill="#4fc3f7"/>
+<text x="510" y="65" class="airport">BUD</text>
+
+<text id="plane" font-size="20">✈</text>
+
+</svg>
+
+</div>
+
 <div class="hero">
 <h1>BLÅTUR 2026</h1>
 <div class="subtitle">BUDAPEST</div>
-
+</header>
 
 <div class="scroll">Scroll ↓</div>
 </div>
@@ -476,11 +555,18 @@ document.querySelectorAll(".image-section img").forEach(img=>{
 observer.observe(img);
 });
 
+window.addEventListener("resize", () => {
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+});
 
 </script>
     
 </body>
 </html>
+
 
 
 
