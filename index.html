@@ -139,8 +139,16 @@ transition:transform 0.8s ease, box-shadow 0.8s ease;
 transform:scale(1.15);
 box-shadow:0 60px 120px rgba(0,0,0,0.9);
 }
+.image-section img:hover{
+transform:scale(1.08);
+}
 
-
+.glass.focus{
+box-shadow:
+0 30px 80px rgba(0,0,0,0.6),
+0 0 40px rgba(80,160,255,0.25);
+}
+    
 html{
 scroll-behavior:smooth;
 }
@@ -459,10 +467,46 @@ document.querySelectorAll(".image-section img").forEach(img=>{
 observer.observe(img);
 });
 
+const glassSections = document.querySelectorAll(".glass");
+
+const observer = new IntersectionObserver(entries => {
+
+entries.forEach(entry => {
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("active");
+
+glassSections.forEach(g=>{
+g.classList.add("focus");
+});
+
+}else{
+
+entry.target.classList.remove("active");
+
+glassSections.forEach(g=>{
+g.classList.remove("focus");
+});
+
+}
+
+});
+
+},{
+rootMargin:"-40% 0px -40% 0px",
+threshold:0
+});
+
+document.querySelectorAll(".image-section img").forEach(img=>{
+observer.observe(img);
+});
+    
 </script>
     
 </body>
 </html>
+
 
 
 
