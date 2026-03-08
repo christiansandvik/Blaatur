@@ -40,11 +40,11 @@ position:relative;
 height:100vh;
 display:flex;
 flex-direction:column;
-justify-content:center;
+justify-content:flex-start; /* flytter alt opp */
 align-items:center;
 text-align:center;
 backdrop-filter:blur(40px);
-padding-top:120px;
+padding-top:60px; /* mindre enn før, reduserer avstanden */
 }
 
 h1{
@@ -223,10 +223,11 @@ filter:drop-shadow(0 0 6px rgba(79,195,247,0.8));
 }
     
 .route-svg{
-width:320px;
-max-width:90vw;
+width:500px;      /* større bredde */
+max-width:90vw;   /* skalerer på små skjermer */
 height:auto;
 display:block;
+margin:auto;
 }
 
 .airport{
@@ -559,6 +560,7 @@ canvas.height = window.innerHeight;
     
 </body>
 </html>
+
 
 
 
