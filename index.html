@@ -27,10 +27,11 @@ overflow-x:hidden;
 
 header{
 display:flex;
-justify-content:center;
+flex-direction:column;
 align-items:center;
-min-height:100vh;
+justify-content:center;
 text-align:center;
+min-height:100vh;
 }
     
 .hero{
@@ -90,8 +91,8 @@ animation:subtitleFloat 6s ease-in-out infinite;
 .scroll{
 position:absolute;
 bottom:40px;
-font-size:0.9rem;
-opacity:0.6;
+left:50%;
+transform:translateX(-50%);
 }
 
 .section{
@@ -212,8 +213,11 @@ padding-top:120px;
 display:flex;
 justify-content:center;
 align-items:center;
-margin:10px 0 10px 0;
+margin:10px auto;
 opacity:0.85;
+width:100%;
+max-width:600px;
+overflow:hidden;
 }
 
 #flightPath{
@@ -221,8 +225,10 @@ filter:drop-shadow(0 0 6px rgba(79,195,247,0.8));
 }
     
 .route-svg{
-width:340px;
-height:110px;
+width:320px;
+max-width:90vw;
+height:auto;
+display:block;
 }
 
 .airport{
@@ -555,6 +561,7 @@ canvas.height = window.innerHeight;
     
 </body>
 </html>
+
 
 
 
