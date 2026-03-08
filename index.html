@@ -57,11 +57,27 @@ animation:gradientMove 6s linear infinite;
 }
 
 .subtitle{
-margin-top:20px;
-font-size:1.2rem;
-opacity:0.8;
+margin-top:25px;
+font-size:1.1rem;
+letter-spacing:0.35em;
+text-transform:uppercase;
+opacity:0.85;
+font-weight:500;
+color:#9fd6ff;
+text-shadow:0 0 12px rgba(120,200,255,0.5);
+animation:subtitleFloat 6s ease-in-out infinite;
 }
 
+@keyframes subtitleFloat{
+
+0%{transform:translateY(0px);}
+
+50%{transform:translateY(-6px);}
+
+100%{transform:translateY(0px);}
+
+}
+    
 .scroll{
 position:absolute;
 bottom:40px;
@@ -446,4 +462,5 @@ observer.observe(img);
     
 </body>
 </html>
+
 
