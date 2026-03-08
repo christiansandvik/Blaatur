@@ -65,7 +65,8 @@ justify-content:center;
 padding:60px 20px;
 }
 
-.glass{
+.glassinfo{
+text-align:center
 background:rgba(255,255,255,0.08);
 backdrop-filter:blur(20px);
 border-radius:30px;
@@ -75,6 +76,16 @@ max-width:800px;
 box-shadow:0 30px 80px rgba(0,0,0,0.6);
 }
 
+.glass{
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(20px);
+border-radius:30px;
+padding:50px;
+width:100%;
+max-width:800px;
+box-shadow:0 30px 80px rgba(0,0,0,0.6);
+}
+  
 .agenda div{
 padding:14px 0;
 font-size:1.1rem;
@@ -150,7 +161,7 @@ opacity:0.5;
 
 
 <div class="section">
-<div class="glass">
+<div class="glassinfo">
 
 💵 <br>Valuta: Forint • Ekte gærninger<div class="rate" id="rate">Loading...</div> <div class="updated" id="updated"></div>
   <br>
@@ -327,6 +338,7 @@ setInterval(updateRate,60000);
   
 </body>
 </html>
+
 
 
 
