@@ -37,6 +37,7 @@ text-align:center;
     
 .hero{
 position:absolute;
+min-height:calc(100vh - var(--header-offset));
 top:50%;
 left:50%;
 transform:translate(-50%,-50%);
@@ -273,7 +274,7 @@ opacity:0.5;
 
 <body>
 <canvas id="stars"></canvas>
-
+<header>
 <!-- Flyruta over hero -->
 <div class="flight-route">
   <svg viewBox="0 0 600 200" class="route-svg">
@@ -297,7 +298,7 @@ opacity:0.5;
   <div class="subtitle">BUDAPEST</div>
   <div class="scroll">Scroll ↓</div>
 </div>
-
+</header>
   
 <div class="section image-section">
 <img src="https://budapesttuktuk.com/images/13/budapest-by-night_en_4bdb0220.jpg">
@@ -577,6 +578,7 @@ canvas.height = window.innerHeight;
     
 </body>
 </html>
+
 
 
 
