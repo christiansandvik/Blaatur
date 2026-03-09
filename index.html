@@ -36,12 +36,13 @@ min-height:100vh;
     
 .hero{
 position:relative;
-height:100vh;
+height:calc(100vh - var(--header-offset));
 display:flex;
 flex-direction:column;
 justify-content:center; /* vertikalt midt */
 align-items:center;    /* horisontalt midt */
 text-align:center;
+margin-top:var(--header-offset);
 }
     
 h1{
@@ -64,7 +65,10 @@ background-size:200%;
 
 animation:gradientMove 6s linear infinite;
 }
-
+:root{
+--header-offset:120px;
+}
+    
 .subtitle{
 margin-top:25px;
 font-size:1.1rem;
@@ -533,6 +537,8 @@ rootMargin:"-40% 0px -40% 0px",
 threshold:0
 });
 
+
+    
 document.querySelectorAll(".image-section img").forEach(img=>{
 observer.observe(img);
 });
@@ -548,6 +554,7 @@ canvas.height = window.innerHeight;
     
 </body>
 </html>
+
 
 
 
