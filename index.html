@@ -1,42 +1,743 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="no">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Improved index.html for Blaatur repository with better accessibility, responsive design, and SEO enhancements.">
-    <meta name="keywords" content="Blaatur, SEO, Accessibility, Responsive Design">
-    <title>Blaatur</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="description" content="Blåtur 2026 - En episk reise til Budapest med fly, hotell, og eventyr. Offisiell arrangørside for Blåturkomitéen.">
+    <meta name="keywords" content="Blåtur, Budapest, 2026, reise, eventyr">
+    <meta name="theme-color" content="#0b0f1a">
+    <meta property="og:title" content="Blåtur 2026 ✈️">
+    <meta property="og:description" content="En episk reise til Budapest 2026">
+    <meta property="og:type" content="website">
+    <link rel="canonical" href="https://christiansandvik.github.io/Blaatur/">
+    <title>Blåtur 2026 ✈️</title>
+    <link rel="icon" href="https://fav.farm/%F0%9F%8D%BE">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --header-offset: 120px;
+            --primary-color: #00f5ff;
+            --secondary-color: #ff00cc;
+            --accent-color: #ff8a00;
+            --dark-bg: #0b0f1a;
+            --text-primary: #ffffff;
+            --text-secondary: #9fd6ff;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background:
+                radial-gradient(circle at 20% 20%, #ff00cc, transparent 40%),
+                radial-gradient(circle at 80% 30%, #00f5ff, transparent 40%),
+                radial-gradient(circle at 50% 80%, #ff8a00, transparent 40%),
+                var(--dark-bg);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* ========== HEADER & HERO ========== */
+        header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-height: 100vh;
+            position: relative;
+            z-index: 1;
+        }
+
+        .flight-route {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.85;
+            padding: 20px;
+        }
+
+        .route-svg {
+            width: 500px;
+            max-width: 90vw;
+            height: auto;
+            display: block;
+            margin: auto;
+        }
+
+        #flightPath {
+            filter: drop-shadow(0 0 6px rgba(79, 195, 247, 0.8));
+        }
+
+        .airport {
+            fill: white;
+            font-size: 11px;
+            opacity: 0.7;
+        }
+
+        .hero {
+            position: relative;
+            min-height: calc(100vh - var(--header-offset));
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin-top: var(--header-offset);
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-weight: 700;
+            letter-spacing: 4px;
+            background: linear-gradient(
+                90deg,
+                #6fd3ff,
+                #3aa8ff,
+                #0066ff,
+                #3aa8ff
+            );
+            background-size: 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientMove 6s ease-in-out infinite;
+            margin-bottom: 20px;
+        }
+
+        .subtitle {
+            margin-top: 25px;
+            font-size: clamp(1rem, 3vw, 1.1rem);
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            opacity: 0.9;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-shadow: 0 0 12px rgba(120, 200, 255, 0.5);
+            animation: subtitleFloat 6s ease-in-out infinite;
+        }
+
+        .scroll {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-10px); }
+        }
+
+        @keyframes subtitleFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-6px); }
+        }
+
+        @keyframes gradientMove {
+            0%, 100% { background-position: 0% }
+            50% { background-position: 100% }
+        }
+
+        /* ========== SECTIONS ========== */
+        main {
+            position: relative;
+            z-index: 2;
+        }
+
+        section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px;
+        }
+
+        /* ========== GLASS MORPHISM ========== */
+        .glass {
+            background: linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.12),
+                rgba(255, 255, 255, 0.03)
+            );
+            backdrop-filter: blur(35px);
+            -webkit-backdrop-filter: blur(35px);
+            border-radius: 30px;
+            padding: clamp(20px, 5vw, 50px);
+            width: 100%;
+            max-width: 800px;
+            box-shadow:
+                0 30px 80px rgba(0, 0, 0, 0.6),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            text-align: left;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .glass.focus {
+            box-shadow:
+                0 30px 80px rgba(0, 0, 0, 0.6),
+                0 0 40px rgba(80, 160, 255, 0.25);
+        }
+
+        .glass.center {
+            text-align: center;
+        }
+
+        /* ========== AGENDA ========== */
+        .agenda {
+            width: 100%;
+        }
+
+        .agenda div {
+            padding: 14px 0;
+            font-size: clamp(0.95rem, 2vw, 1.1rem);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .agenda div:last-child {
+            border-bottom: none;
+        }
+
+        .agenda strong {
+            font-size: clamp(1.2rem, 3vw, 1.4rem);
+            display: block;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        /* ========== IMAGES ========== */
+        .image-section {
+            background: transparent;
+        }
+
+        .image-section img {
+            max-width: 300px;
+            width: 100%;
+            height: auto;
+            border-radius: 30px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7);
+            transition: transform 0.8s ease, box-shadow 0.8s ease;
+            loading: lazy;
+        }
+
+        .image-section img:hover {
+            transform: scale(1.08);
+        }
+
+        .image-section img.active {
+            transform: scale(1.18);
+            box-shadow: 0 80px 140px rgba(0, 0, 0, 0.95);
+        }
+
+        /* ========== INFO BOXES ========== */
+        .capped-img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 10px;
+            transition: opacity 0.3s ease;
+        }
+
+        .capped-img:hover {
+            opacity: 0.9;
+        }
+
+        .ratebox {
+            margin-top: 30px;
+            padding: 20px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+        }
+
+        .rate {
+            font-size: 14px;
+            font-weight: bold;
+            margin-top: 10px;
+            color: var(--primary-color);
+        }
+
+        .updated {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 12px;
+            margin-top: 6px;
+        }
+
+        /* ========== LINKS ========== */
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        a:hover {
+            opacity: 0.8;
+        }
+
+        a:focus {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+
+        a img {
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: rgba(255, 255, 255, 0.5);
+            background: linear-gradient(to top, rgba(11, 15, 26, 0.8), transparent);
+            margin-top: 60px;
+        }
+
+        /* ========== CANVAS BACKGROUND ========== */
+        #stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        /* ========== RESPONSIVE DESIGN ========== */
+        @media (max-width: 1024px) {
+            .route-svg {
+                width: 100%;
+            }
+
+            h1 {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --header-offset: 80px;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+                letter-spacing: 2px;
+            }
+
+            .subtitle {
+                font-size: 0.95rem;
+                letter-spacing: 0.25em;
+            }
+
+            section {
+                min-height: auto;
+                padding: 40px 15px;
+            }
+
+            .glass {
+                padding: 25px;
+                border-radius: 20px;
+            }
+
+            .agenda div {
+                padding: 10px 0;
+                font-size: 1rem;
+            }
+
+            .agenda strong {
+                font-size: 1.2rem;
+            }
+
+            .image-section img {
+                max-width: 250px;
+            }
+
+            .route-svg {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+                letter-spacing: 2px;
+            }
+
+            .subtitle {
+                font-size: 0.9rem;
+            }
+
+            section {
+                padding: 30px 10px;
+            }
+
+            .glass {
+                padding: 20px;
+            }
+
+            .agenda div {
+                padding: 8px 0;
+                font-size: 0.9rem;
+            }
+
+            .capped-img {
+                max-width: 200px;
+            }
+
+            .scroll {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* ========== PRINT STYLES ========== */
+        @media print {
+            #stars,
+            .scroll {
+                display: none;
+            }
+
+            section {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <header>
-        <h1>Welcome to Blaatur</h1>
+    <canvas id="stars" aria-hidden="true"></canvas>
+
+    <header role="banner">
+        <!-- Flight Route SVG -->
+        <div class="flight-route" aria-label="Flight route from Oslo to Budapest">
+            <svg viewBox="0 0 600 200" class="route-svg">
+                <title>Flight Route OSL to BUD</title>
+                <defs>
+                    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                        <polygon points="0 0, 10 3, 0 6" fill="#4fc3f7" />
+                    </marker>
+                </defs>
+                <path id="flightPath"
+                      d="M80 150 Q300 20 520 80"
+                      fill="none"
+                      stroke="rgba(255,255,255,0.6)"
+                      stroke-width="2"
+                      stroke-dasharray="6 6"
+                      marker-end="url(#arrowhead)"/>
+                <circle cx="80" cy="150" r="4" fill="#4fc3f7"/>
+                <text x="60" y="170" class="airport">OSL</text>
+                <circle cx="520" cy="80" r="4" fill="#4fc3f7"/>
+                <text x="510" y="65" class="airport">BUD</text>
+                <text id="plane" font-size="20" aria-hidden="true">✈</text>
+            </svg>
+        </div>
+
+        <!-- Hero Section -->
+        <div class="hero">
+            <h1>BLÅTUR 2026</h1>
+            <div class="subtitle">BUDAPEST</div>
+            <div class="scroll" aria-label="Scroll down for more information">Scroll ↓</div>
+        </div>
     </header>
+
     <main>
-        <section id="about" role="region" aria-labelledby="about-title">
-            <h2 id="about-title">About Us</h2>
-            <p>This section contains information about our project.</p>
-            <img src="image.jpg" alt="A description of the image." loading="lazy">
+        <!-- Image Section 1 -->
+        <section class="image-section" aria-label="Budapest night scene">
+            <img src="https://budapesttuktuk.com/images/13/budapest-by-night_en_4bdb0220.jpg" 
+                 alt="Budapest cityscape illuminated at night with iconic architecture and lights reflecting on the Danube River"
+                 loading="lazy">
         </section>
-        <section id="features" role="region" aria-labelledby="features-title">
-            <h2 id="features-title">Features</h2>
-            <ul>
-                <li>Feature 1</li>
-                <li>Feature 2</li>
-            </ul>
+
+        <!-- Info Section -->
+        <section aria-label="Travel information and guidelines">
+            <div class="glass center">
+                <div>
+                    <strong>💵 Valuta</strong>
+                    <p>Forint • Ekte gærninger</p>
+                    <div class="rate" id="rate" aria-live="polite" aria-label="Current exchange rate">Loading...</div>
+                    <div class="updated" id="updated"></div>
+                </div>
+
+                <div style="margin-top: 30px;">
+                    <strong>🔪 Viktig</strong>
+                    <p>Pass på svindel</p>
+                </div>
+
+                <div style="margin-top: 30px;">
+                    <strong>🗳️ OBS!</strong>
+                    <p>Valg - Viktor Orbán vs. Péter Magyar</p>
+                </div>
+
+                <div style="margin-top: 30px;">
+                    <strong>💬 Sosiale Medier</strong>
+                    <p>Legg ut bilder i messengerchatten som et voksent menneske.<br>
+                    Snapchat er for barn.</p>
+                </div>
+
+                <div style="margin-top: 30px;">
+                    <strong>🏆 Kåring</strong>
+                    <p>Komitéen vil som vanlig kåre årets blåturer. Stemning og gledespredning vektlegges!</p>
+                </div>
+
+                <div style="margin-top: 40px;">
+                    <strong>🛎️ Hotell</strong>
+                    <a href="https://www.caratboutiquehotel.hu/en/" target="_blank" rel="noopener noreferrer">
+                        <img src="https://d1vp8nomjxwyf1.cloudfront.net/wp-content/uploads/sites/490/2018/12/18081200/CaratBoutiqueLogo.png" 
+                             alt="Carat Boutique Hotel logo"
+                             class="capped-img">
+                    </a>
+                    <p style="margin-top: 15px;">
+                        <strong>Carat Boutique Hotel</strong><br>
+                        Király u. 6<br>
+                        1061 Budapest
+                    </p>
+                    <p style="margin-top: 10px;">Inkludert:<br>
+                    Frokost • Treningsrom • Badstue</p>
+                </div>
+
+                <div style="margin-top: 40px;">
+                    <strong>✈️ Flyselskap</strong>
+                    <a href="https://www.norwegian.com" target="_blank" rel="noopener noreferrer">
+                        <img src="https://mnd-assets.mynewsdesk.com/image/upload/c_fill,dpr_auto,f_auto,g_auto,q_auto:good,w_1782/om6idojnth03vpoypbsc" 
+                             alt="Norwegian Airlines logo"
+                             class="capped-img">
+                    </a>
+                    <p style="margin-top: 15px;">
+                        <strong>Bookingreferanse:</strong> YNCEQK
+                    </p>
+                    <p style="margin-top: 10px;">
+                        2 stk innsjekket bagasje<br>
+                        1 stk håndbagasje under setet
+                    </p>
+                </div>
+            </div>
         </section>
-        <section id="contact" role="region" aria-labelledby="contact-title">
-            <h2 id="contact-title">Contact Us</h2>
-            <form>
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" aria-required="true">
-                <button type="submit">Submit</button>
-            </form>
+
+        <!-- Image Section 2 -->
+        <section class="image-section" aria-label="Hungarian paprika and local cuisine">
+            <img src="https://images.squarespace-cdn.com/content/v1/668e7c2cf6824f5bc46f285a/e4b57ff9-89d3-4c22-9f21-d814e49349ac/paprika-ungarn-historie-nordstrand-rolis-kjott.jpg" 
+                 alt="Traditional Hungarian paprika spice and local ingredients"
+                 loading="lazy">
+        </section>
+
+        <!-- Thursday Schedule -->
+        <section aria-label="Thursday itinerary">
+            <div class="glass">
+                <div class="agenda">
+                    <div><strong>Torsdag</strong></div>
+                    <div>08:00 Oppmøte Gardermoen</div>
+                    <div>10:00 Flyavgang OSL - Norwegian DY1550</div>
+                    <div>12:20 Landing BUD</div>
+                    <div>13:00 Avreise fra flyplassen</div>
+                    <div>13:30 Ankomst Carat Boutique Hotel</div>
+                    <div>16:30 Enkel servering på 0,75 Basilica Wine Bar & Bistro 🥗</div>
+                    <div>18:30 Hightnote Takbar</div>
+                    <div>21:00 Tikibar 🍹</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Image Section 3 -->
+        <section class="image-section" aria-label="Budapest Danube river with historic tramway">
+            <img src="https://media.istockphoto.com/id/1141774601/photo/budapest-donau-river-waterfront-historic-yellow-tramway-view.jpg?s=612x612&w=0&k=20&c=igRopL2eX3CBJboRO5hEHKwZKvGbGVz3tHGqS8YqUko=" 
+                 alt="Budapest Danube River waterfront with historic yellow tram car reflecting in the water"
+                 loading="lazy">
+        </section>
+
+        <!-- Friday Schedule -->
+        <section aria-label="Friday itinerary">
+            <div class="glass">
+                <div class="agenda">
+                    <div><strong>Fredag</strong></div>
+                    <div>07:00–10:00 Frokost på hotellet 🧇</div>
+                    <div>13:00 Oppmøte resepsjonen - Aktivitet 🩳</div>
+                    <div>16:30 Beinstrekk 🛋️</div>
+                    <div>18:00 Middag på Százéves 🍲</div>
+                    <div>21:00 ???</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Image Section 4 -->
+        <section class="image-section" aria-label="Hungarian goulash traditional dish">
+            <img src="https://blog.urbanadventures.com/wp-content/uploads/2019/01/Budapest-Gulyas.jpg" 
+                 alt="Traditional Hungarian goulash stew served in a traditional ceramic bowl"
+                 loading="lazy">
+        </section>
+
+        <!-- Saturday Schedule -->
+        <section aria-label="Saturday itinerary">
+            <div class="glass">
+                <div class="agenda">
+                    <div><strong>Lørdag</strong></div>
+                    <div>07:00–10:00 Frokost på hotellet 🥓</div>
+                    <div>13:00 Oppmøte resepsjonen - Aktivitet 🪿</div>
+                    <div>18:00 Oppmøte resepsjonen - Middag 🍴</div>
+                    <div>21:00 ???</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Image Section 5 -->
+        <section class="image-section" aria-label="Tokaji wine and cork">
+            <img src="https://media.istockphoto.com/id/1214550550/photo/a-basic-corkscrew-with-a-cork-on-a-wooden-table-tokaji-is-wines-name-written-on-cork-from.jpg?s=612x612&w=0&k=20&c=N-jqB9B_BkFiLGqk_fFWA8xGPF0F7H8SJ3rLJBWK5LA=" 
+                 alt="Tokaji wine cork and corkscrew on wooden table representing Hungarian wine culture"
+                 loading="lazy">
+        </section>
+
+        <!-- Sunday Schedule -->
+        <section aria-label="Sunday itinerary">
+            <div class="glass">
+                <div class="agenda">
+                    <div><strong>Søndag</strong></div>
+                    <div>07:00 Frokost 🥯</div>
+                    <div>07:30 Oppmøte resepsjonen</div>
+                    <div>07:40 Avreise fra hotellet</div>
+                    <div>08:30 Innsjekking BUD</div>
+                    <div>10:00 Flyavgang - Norwegian DY1551</div>
+                    <div>12:25 Landing OSL</div>
+                    <div>21:00 Glede oss til neste års blåtur 🎉</div>
+                </div>
+            </div>
         </section>
     </main>
-    <footer>
-        <p>&copy; 2026 Blaatur. All rights reserved.</p>
+
+    <footer role="contentinfo">
+        <p>✈️ · 2026 · Blåturkomitéen · 🍹</p>
     </footer>
-    <script src="script.js" defer></script>
+
+    <!-- Scripts -->
+    <script>
+        // ========== EXCHANGE RATE UPDATER ==========
+        async function updateRate() {
+            const url = "https://data.norges-bank.no/api/data/EXR/B.HUF.NOK.SP?lastNObservations=1&format=sdmx-json";
+
+            try {
+                const response = await fetch(url);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+                const series = data.data.dataSets[0].series;
+                const seriesKey = Object.keys(series)[0];
+                const observation = series[seriesKey].observations;
+                const obsKey = Object.keys(observation)[0];
+                const rate = observation[obsKey][0];
+                const hufPerNok = 1 / rate;
+                const value = (10000 * hufPerNok).toFixed(2);
+
+                document.getElementById("rate").innerHTML = "100 NOK → " + value + " HUF";
+                document.getElementById("updated").innerHTML =
+                    "Norges Bank's exchange rates • Oppdatert " +
+                    new Date().toLocaleTimeString('no-NO');
+
+            } catch (err) {
+                console.error('Failed to fetch exchange rate:', err);
+                document.getElementById("rate").innerHTML = "Kunne ikke hente kurs";
+            }
+        }
+
+        updateRate();
+        setInterval(updateRate, 60000);
+
+        // ========== STARFIELD ANIMATION ==========
+        const canvas = document.getElementById("stars");
+        const ctx = canvas.getContext("2d");
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        resizeCanvas();
+        window.addEventListener("resize", resizeCanvas);
+
+        const stars = [];
+        for (let i = 0; i < 120; i++) {
+            stars.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                r: Math.random() * 1.5,
+                speed: Math.random() * 0.2
+            });
+        }
+
+        function drawStars() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = "white";
+
+            stars.forEach(star => {
+                ctx.beginPath();
+                ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
+                ctx.fill();
+
+                star.y += star.speed;
+
+                if (star.y > canvas.height) {
+                    star.y = 0;
+                }
+            });
+
+            requestAnimationFrame(drawStars);
+        }
+
+        drawStars();
+
+        // ========== INTERSECTION OBSERVER FOR FOCUS EFFECT ==========
+        const glassSections = document.querySelectorAll(".glass");
+        const images = document.querySelectorAll(".image-section img");
+
+        const observerOptions = {
+            root: null,
+            rootMargin: "-40% 0px -40% 0px",
+            threshold: 0
+        };
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Add active class to image
+                    if (entry.target.tagName === 'IMG') {
+                        entry.target.classList.add("active");
+                    }
+                    // Add focus to ALL glass sections when viewing content
+                    glassSections.forEach(g => {
+                        g.classList.add("focus");
+                    });
+                } else {
+                    // Remove active class from image
+                    if (entry.target.tagName === 'IMG') {
+                        entry.target.classList.remove("active");
+                    }
+                    // Remove focus from ALL glass sections
+                    glassSections.forEach(g => {
+                        g.classList.remove("focus");
+                    });
+                }
+            });
+        }, observerOptions);
+
+        // Observe all images
+        images.forEach(img => {
+            observer.observe(img);
+        });
+    </script>
 </body>
 </html>
