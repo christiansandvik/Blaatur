@@ -26,23 +26,21 @@ overflow-x:hidden;
 }
 
 header{
+position:relative;
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
+    
+.hero{
 display:flex;
 flex-direction:column;
 align-items:center;
 justify-content:center;
 text-align:center;
-min-height:100vh;
-}
-    
-.hero{
-position:relative;
-min-height:calc(100vh - var(--header-offset));
-display:flex;
-flex-direction:column;
-justify-content:center; /* vertikalt midt */
-align-items:center;    /* horisontalt midt */
-text-align:center;
-margin-top:var(--header-offset);
 }
     
 h1{
@@ -207,13 +205,17 @@ z-index:-1;
 }
 
 .flight-route{
+position:absolute;
+top:60px;
+left:50%;
+transform:translateX(-50%);
 display:flex;
 justify-content:center;
 align-items:center;
 width:100%;
 max-width:600px;
-margin:0 auto;      /* midtstilt horisontalt */
 opacity:0.85;
+pointer-events:none;
 }
 
 #flightPath{
@@ -554,6 +556,7 @@ canvas.height = window.innerHeight;
     
 </body>
 </html>
+
 
 
 
