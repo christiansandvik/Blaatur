@@ -36,10 +36,10 @@ text-align:center;
 }
     
 .hero{
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
 text-align:center;
 }
     
@@ -230,6 +230,27 @@ display:block;
 margin:auto;
 }
 
+#plane{
+offset-path:path("M80 150 Q300 20 520 80");
+offset-rotate:auto;
+animation:fly 4s ease forwards;
+filter:drop-shadow(0 0 6px #4fc3f7);
+}
+
+@keyframes fly{
+from{offset-distance:-10%;opacity:0;}
+to{offset-distance:100%;opacity:1;}
+}
+
+#bud{
+animation:landBlink 0.8s ease 4s 1;
+}
+
+@keyframes landBlink{
+0%,100%{r:4;}
+50%{r:7;}
+} 
+    
 .airport{
 fill:white;
 font-size:11px;
@@ -264,7 +285,7 @@ opacity:0.5;
           stroke-dasharray="6 6"/>
     <circle cx="80" cy="150" r="4" fill="#4fc3f7"/>
     <text x="60" y="170" class="airport">OSL</text>
-    <circle cx="520" cy="80" r="4" fill="#4fc3f7"/>
+   <circle id="bud" cx="520" cy="80" r="4" fill="#4fc3f7"/>
     <text x="510" y="65" class="airport">BUD</text>
     <text id="plane" font-size="20">✈</text>
   </svg>
@@ -556,6 +577,7 @@ canvas.height = window.innerHeight;
     
 </body>
 </html>
+
 
 
 
