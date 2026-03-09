@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Improved index.html for Blaatur repository with better accessibility, responsive design, and SEO enhancements.">
+    <meta name="keywords" content="Blaatur, SEO, Accessibility, Responsive Design">
+    <title>Blaatur</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Blaatur</h1>
+    </header>
+    <main>
+        <section id="about" role="region" aria-labelledby="about-title">
+            <h2 id="about-title">About Us</h2>
+            <p>This section contains information about our project.</p>
+            <img src="image.jpg" alt="A description of the image." loading="lazy">
+        </section>
+        <section id="features" role="region" aria-labelledby="features-title">
+            <h2 id="features-title">Features</h2>
+            <ul>
+                <li>Feature 1</li>
+                <li>Feature 2</li>
+            </ul>
+        </section>
+        <section id="contact" role="region" aria-labelledby="contact-title">
+            <h2 id="contact-title">Contact Us</h2>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" aria-required="true">
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2026 Blaatur. All rights reserved.</p>
+    </footer>
+    <script src="script.js" defer></script>
+</body>
+</html>
