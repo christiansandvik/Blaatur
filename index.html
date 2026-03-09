@@ -36,11 +36,11 @@ text-align:center;
 }
     
 .hero{
-position:absolute;
-min-height:calc(100vh - var(--header-offset));
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
 text-align:center;
 }
     
@@ -207,7 +207,7 @@ z-index:-1;
 
 .flight-route{
 position:absolute;
-top:60px;
+top:8vh;
 left:50%;
 transform:translateX(-50%);
 display:flex;
@@ -224,7 +224,7 @@ filter:drop-shadow(0 0 6px rgba(79,195,247,0.8));
 }
     
 .route-svg{
-width:500px;        /* større flyrute */
+width:520px;        /* større flyrute */
 max-width:90vw;
 height:auto;
 display:block;
@@ -578,6 +578,7 @@ canvas.height = window.innerHeight;
     
 </body>
 </html>
+
 
 
 
