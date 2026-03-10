@@ -284,20 +284,21 @@ opacity:0.7;
 
 .landing{
 animation:landingPulse 0.8s ease-out;
+transform-origin:center;
 }
 
 @keyframes landingPulse{
 
 0%{
-r:4;
+transform:scale(1);
 }
 
 50%{
-r:10;
+transform:scale(2.2);
 }
 
 100%{
-r:6;
+transform:scale(1.3);
 }
 
 }
@@ -631,20 +632,25 @@ const budDot = document.getElementById("budDot");
 const pathLength = path.getTotalLength();
 
 let progress = 0;
+let landed = false;
 
 function animatePlane(){
 
-progress += 0.002;
+progress += 0.004;
 
 if(progress > 1){
 progress = 1;
-budDot.classList.add("landing");   // landing-effekt
 }
 
 const point = path.getPointAtLength(progress * pathLength);
 
 plane.setAttribute("x", point.x);
 plane.setAttribute("y", point.y);
+
+if(progress >= 0.98 && !landed){
+budDot.classList.add("landing");
+landed = true;
+}
 
 if(progress < 1){
 requestAnimationFrame(animatePlane);
@@ -658,5 +664,6 @@ animatePlane();
     
 </body>
 </html>
+
 
 
