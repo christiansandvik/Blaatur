@@ -278,10 +278,29 @@ animation:landBlink 0.8s ease 4s 1;
     
 .airport{
 fill:white;
-font-size:11px;
+font-size:12px;
 opacity:0.7;
 }
 
+.landing{
+animation:landingPulse 0.8s ease-out;
+}
+
+@keyframes landingPulse{
+
+0%{
+r:4;
+}
+
+50%{
+r:10;
+}
+
+100%{
+r:6;
+}
+
+}
 
 /* ========== FOOTER ========== */
 footer{
@@ -313,8 +332,10 @@ opacity:0.5;
         />
     <circle cx="80" cy="150" r="4" fill="#4fc3f7"/>
     <text x="60" y="170" class="airport">OSL</text>
+      
    <circle id="bud" cx="520" cy="80" r="4" fill="#4fc3f7"/>
-    <text x="510" y="65" class="airport">BUD</text>
+    <text x="505" y="65" class="airport">BUD</text>
+      
     <text id="plane" font-size="20">✈</text>
   </svg>
 </div>
@@ -604,6 +625,7 @@ canvas.height = window.innerHeight;
 });
 const path = document.getElementById("flightPath");
 const plane = document.getElementById("plane");
+const budDot = document.getElementById("budDot");
 
 const pathLength = path.getTotalLength();
 
@@ -615,6 +637,7 @@ progress += 0.002;
 
 if(progress > 1){
 progress = 1;
+budDot.classList.add("landing");   // landing-effekt
 }
 
 const point = path.getPointAtLength(progress * pathLength);
@@ -634,33 +657,4 @@ animatePlane();
     
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
