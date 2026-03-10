@@ -27,7 +27,7 @@ radial-gradient(circle at 50% 80%,#ff8a00,transparent 40%),
 color:white;
 overflow-x:hidden;
 }
-
+/* ========== HEADER & HERO ========== */
 header{
 position:relative;
 height:100vh;
@@ -99,7 +99,8 @@ bottom:40px;
 left:50%;
 transform:translateX(-50%);
 }
-
+    
+/* ========== SECTIONS ========== */
 .section{
 min-height:100vh;
 display:flex;
@@ -107,7 +108,8 @@ align-items:center;
 justify-content:center;
 padding:60px 20px;
 }
-
+    
+ /* ========== GLASS MORPHISM ========== */
 .glass{
 background:linear-gradient(
 135deg,
@@ -126,7 +128,14 @@ inset 0 1px 0 rgba(255,255,255,0.2);
 border:1px solid rgba(255,255,255,0.15);
 text-align:left;
 }
-    
+
+.glass.focus{
+box-shadow:
+0 30px 80px rgba(0,0,0,0.6),
+0 0 40px rgba(80,160,255,0.25);
+}
+
+/* ========== AGENDA ========== */
 .agenda div{
 padding:14px 0;
 font-size:1.1rem;
@@ -144,6 +153,7 @@ margin-bottom:15px;
 color:#00f5ff;
 }
 
+ /* ========== IMAGES ========== */
 .image-section img{
 max-width:300px;
 border-radius:30px;
@@ -159,18 +169,12 @@ transform:scale(1.08);
 transform:scale(1.18);
 box-shadow:0 80px 140px rgba(0,0,0,0.95);
 }
-
-    
-.glass.focus{
-box-shadow:
-0 30px 80px rgba(0,0,0,0.6),
-0 0 40px rgba(80,160,255,0.25);
-}
-    
+ 
 html{
 scroll-behavior:smooth;
 }
 
+/* ========== INFO BOXES ========== */
 .capped-img{
 width:100%;
 max-width:300px;
@@ -199,6 +203,8 @@ margin-top:6px;
 .center{
 text-align:center;
 }
+
+/* ========== CANVAS BACKGROUND ========== */
 #stars{
 position:fixed;
 top:0;
@@ -207,7 +213,22 @@ width:100%;
 height:100%;
 z-index:-1;
 }
-
+/* ========== LINKS ========== */
+a:focus {
+  outline: 2px solid #00f5ff;
+  outline-offset: 2px;
+}
+a {
+color: var(--primary-color);
+text-decoration: none;
+transition: opacity 0.3s ease;
+}
+a img {
+display: block;
+margin: 0 auto;
+}
+    
+/* ========== FLIGHT ========== */
 .flight-route{
 position:absolute;
 top:8vh;
@@ -261,11 +282,8 @@ font-size:11px;
 opacity:0.7;
 }
 
-a:focus {
-  outline: 2px solid #00f5ff;
-  outline-offset: 2px;
-}
-    
+
+/* ========== FOOTER ========== */
 footer{
 text-align:center;
 padding:40px;
@@ -316,13 +334,13 @@ opacity:0.5;
 
 <div class="section">
 <div class="glass center">
-💵 Valuta <br>Forint • Ekte gærninger<div class="rate" id="rate">Loading...</div> <div class="updated" id="updated"></div>
+💵 <strong>Valuta</strong> <br>Forint • Ekte gærninger<div class="rate" id="rate">Loading...</div> <div class="updated" id="updated"></div>
   <br>
-🔪 <br>Pass på svindel<br><br>
-🗳️ <br>OBS! Valg.<br> Viktor Orbán vs. Péter Magyar<br><br>
-💬 <br>Legg ut bilder i messengerchatten som et voksent menneske.<br><br>
+🔪 <strong>Viktig</strong>strong><br>Pass på svindel<br><br>
+🗳️ <strong>OBS! Valg</strong><br> Viktor Orbán vs. Péter Magyar<br><br>
+💬 <strong>SOME</strong><br>Legg ut bilder i messengerchatten som et voksent menneske.<br><br>
 👻 <br>Snapchat er for barn.<br><br>
-🏆<br>
+🏆<stong>Årets Blåturer</stong><br>
 Komitéen vil som vanlig kåre årets blåturer, <br>stemning og gledespredning vektlegges!
 
 <br>
@@ -342,7 +360,7 @@ Király u. 6<br>
 <p style="margin-top: 10px;">Inkludert <br>Frokost • Treningsrom • Badstue • Badeslippers</p>
 
 <br><br>
-✈️<br><br>
+✈️<strong>Fly</strong><br><br>
 <a href="https://www.norwegian.com">
 <img src="https://mnd-assets.mynewsdesk.com/image/upload/c_fill,dpr_auto,f_auto,g_auto,q_auto:good,w_1782/om6idojnth03vpoypbsc" alt="Norwegian"  class="capped-img">
 </a>
@@ -588,6 +606,7 @@ canvas.height = window.innerHeight;
     
 </body>
 </html>
+
 
 
 
