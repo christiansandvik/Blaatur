@@ -255,12 +255,12 @@ display:block;
 margin:auto;
 }
 
-#plane{
+/* #plane{
 offset-path:path("M80 150 Q300 20 520 80");
 offset-rotate:auto;
 animation:fly 4s ease forwards;
 filter:drop-shadow(0 0 6px #4fc3f7);
-}
+} */
 
 @keyframes fly{
 from{offset-distance:-10%;opacity:0;}
@@ -309,7 +309,8 @@ opacity:0.5;
           fill="none"
           stroke="rgba(255,255,255,0.6)"
           stroke-width="2"
-          stroke-dasharray="6 6"/>
+          stroke-dasharray="6 6"
+        />
     <circle cx="80" cy="150" r="4" fill="#4fc3f7"/>
     <text x="60" y="170" class="airport">OSL</text>
    <circle id="bud" cx="520" cy="80" r="4" fill="#4fc3f7"/>
@@ -336,16 +337,16 @@ opacity:0.5;
 <div class="glass center">
 💵 <strong>Valuta</strong> <br>Forint • Ekte gærninger<div class="rate" id="rate">Loading...</div> <div class="updated" id="updated"></div>
   <br>
-🔪 <strong>Viktig</strong>strong><br>Pass på svindel<br><br>
+🔪 <strong>Viktig</strong><br>Pass på svindel<br><br>
 🗳️ <strong>OBS! Valg</strong><br> Viktor Orbán vs. Péter Magyar<br><br>
-💬 <strong>SOME</strong><br>Legg ut bilder i messengerchatten som et voksent menneske.<br><br>
+💬 <strong>SOME</strong><br>Legg ut bilder i messengerchatten som et voksent menneske.<br>
 👻 <br>Snapchat er for barn.<br><br>
-🏆<stong>Årets Blåturer</stong><br>
+🏆<strong>Årets Blåturer</strong><br>
 Komitéen vil som vanlig kåre årets blåturer, <br>stemning og gledespredning vektlegges!
 
 <br>
 <br>
-🛎️ Hotell
+🛎️ <strong>Hotell</strong>
 <br>
 <a href="https://www.caratboutiquehotel.hu/en/">
 <img src="https://d1vp8nomjxwyf1.cloudfront.net/wp-content/uploads/sites/490/2018/12/18081200/CaratBoutiqueLogo.png" alt="Carat" class="capped-img">
@@ -601,11 +602,39 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 });
+const path = document.getElementById("flightPath");
+const plane = document.getElementById("plane");
 
+const pathLength = path.getTotalLength();
+
+let progress = 0;
+
+function animatePlane(){
+
+progress += 0.002;
+
+if(progress > 1){
+progress = 1;
+}
+
+const point = path.getPointAtLength(progress * pathLength);
+
+plane.setAttribute("x", point.x);
+plane.setAttribute("y", point.y);
+
+if(progress < 1){
+requestAnimationFrame(animatePlane);
+}
+
+}
+
+animatePlane();
+    
 </script>
     
 </body>
 </html>
+
 
 
 
